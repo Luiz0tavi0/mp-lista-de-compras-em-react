@@ -1,23 +1,27 @@
 import logo from './assets/logo.svg';
-import trash from './assets/trash.svg';
-import done from './assets/done.svg';
-import RowItems from './components/Row-Items';
+
 import { useState } from 'react';
+import { TodoItemBuy } from './intefarces';
+import ShoppingBoard from './components/shopping-board';
 
 const randomGenerateId = (): string => `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
 
 
-export interface TodoItemBuy {
-  id: string,
-  name: string,
-  quantity: string,
-  finish: boolean
-
-}
-
 
 const App = () => {
   const [items, setItems] = useState<TodoItemBuy[]>([
+    {
+      id: randomGenerateId(),
+      name: 'Maçã',
+      quantity: '500g',
+      finish: false
+    },
+    {
+      id: randomGenerateId(),
+      name: 'Leite',
+      quantity: '3 caixas',
+      finish: false
+    },
     {
       id: randomGenerateId(),
       name: 'Maçã',
@@ -69,41 +73,7 @@ const App = () => {
           +
         </button>
       </form>
-      <section className="mt-10 space-y-3 ">
-        <RowItems todoBuyItems={items} />
-      </section>
-
-      <section className="mt-16 space-y-3">
-        <h2 className="mb-10 text-3xl text-center font-display">
-          Itens já comprados
-        </h2>
-        <article className="flex w-full gap-4">
-          <img src={done} alt="#" />
-          <div className="flex-1 text-slate-400 line-through">
-            <p>Leite</p>
-            <p className="text-sm">3 Caixas</p>
-          </div>
-          <img
-            src={trash}
-            alt="ícone de lixeira"
-            className="justify-self-end"
-          />
-        </article>
-        <hr />
-        <article className="flex w-full gap-4">
-          <img src={done} alt="#" />
-          <div className="flex-1">
-            <p className="line-through text-slate-400">Maçã</p>
-            <p className="text-sm line-through text-slate-400">500g</p>
-          </div>
-          <img
-            src={trash}
-            alt="ícone de lixeira"
-            className="justify-self-end"
-          />
-        </article>
-        <hr />
-      </section>
+      <ShoppingBoard todoBuyItems={items} handleRowItem={setItems}/>
     </main>
   );
 }
