@@ -2,7 +2,7 @@ import React from 'react';
 import trash from './../assets/trash.svg';
 import todo from './../assets/todo.svg';
 import done from './../assets/done.svg';
-import { actionsParams, RowItemsProps, TodoItemBuy } from '../intefarces';
+import { actionsParams, RowItemsProps, TodoItemBuy } from '../intefaces';
 
 
 
@@ -30,11 +30,6 @@ const RowItem = (
   )
 }
 const RowItems = ({ todoBuyItems, handleRowItem }: RowItemsProps) => {
-  // const handleItem = (params: actionsParams) => {
-  //   handleRowItem(params)
-  //   console.log(params.id)
-  //   console.log(params.action)
-  // }
 
   return (
     <>

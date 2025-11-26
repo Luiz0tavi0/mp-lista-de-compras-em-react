@@ -1,5 +1,5 @@
-import RowItems from './Row-Items';
-import { actionsParams, ShoppingBoardProps } from '../intefarces';
+import RowItems from './row-items';
+import { actionsParams, ShoppingBoardProps } from '../intefaces';
 
 
 

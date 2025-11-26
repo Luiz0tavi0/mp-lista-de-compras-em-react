@@ -3,10 +3,14 @@ import { Dispatch, SetStateAction } from "react"
 export type actionsParams = {
   id: string, action: string
 }
-export interface TodoItemBuy {
-  id: string,
+
+export interface BaseInputItem {
   name: string,
   quantity: string,
+}
+
+export interface TodoItemBuy extends BaseInputItem {
+  id: string,
   finish: boolean
 
 }
@@ -19,3 +23,5 @@ export type ShoppingBoardProps = {
   todoBuyItems: TodoItemBuy[]
   handleRowItem: Dispatch<SetStateAction<TodoItemBuy[]>>
 }
+
+export type InputFormProps = { handleItem: Dispatch<SetStateAction<TodoItemBuy[]>> }
