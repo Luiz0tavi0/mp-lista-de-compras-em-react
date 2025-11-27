@@ -25,12 +25,15 @@ const ShoppingBoard = ({ handleRowItem, todoBuyItems: items }: ShoppingBoardProp
   return <>
     <section className="mt-10 space-y-3 ">
       <RowItems todoBuyItems={items.filter((itb) => !itb.finish)} handleRowItem={handlerChange} />
-    </section><section className="mt-16 space-y-3">
-      <h2 className="mb-10 text-3xl text-center font-display">
-        Itens já comprados
-      </h2>
-      <RowItems todoBuyItems={items.filter((itb) => itb.finish)} handleRowItem={handlerChange} />
     </section>
+    {items.filter((itb) => itb.finish).length > 0 &&
+      <section className="mt-16 space-y-3">
+        <h2 className="mb-10 text-3xl text-center font-display">
+          Itens já comprados
+        </h2>
+        <RowItems todoBuyItems={items.filter((itb) => itb.finish)} handleRowItem={handlerChange} />
+      </section>
+    }
   </>
 }
 export default ShoppingBoard;
